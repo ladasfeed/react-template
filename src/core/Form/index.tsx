@@ -1,5 +1,10 @@
 import React, { FC, FormEventHandler, HTMLAttributes, useEffect } from "react";
-import { UseFormClearErrors, UseFormSetError } from "react-hook-form";
+import {
+  FormState,
+  UseFormClearErrors,
+  UseFormHandleSubmit,
+  UseFormSetError,
+} from "react-hook-form";
 import { useSelector } from "react-redux";
 import { errorsSelectors } from "store/state/static/errorsReducer";
 
@@ -19,19 +24,22 @@ const getFieldFromObjectByArrayOfKeys = (object: any, keys: Array<string>) => {
 };
 
 type propsType = {
-  onSubmit: FormEventHandler<HTMLFormElement>;
+  submit: any;
   clearErrors: UseFormClearErrors<any>;
-  errors: any;
+  formState: FormState<any>;
+  handleSubmit: UseFormHandleSubmit<any>;
   setError: UseFormSetError<any>;
 } & HTMLAttributes<HTMLFormElement>;
 export const Form: FC<propsType> = ({
   children,
-  onSubmit,
   clearErrors,
-  errors,
+  formState,
+  handleSubmit,
+  submit,
   setError,
   ...props
 }) => {
+  const { errors } = formState;
   const errorsFromStore = useSelector(errorsSelectors.fieldsErrors);
 
   /** Setting errors from server to front */
@@ -67,7 +75,7 @@ export const Form: FC<propsType> = ({
   };
 
   return (
-    <form onSubmit={onSubmit} onChange={onFormChange} {...props}>
+    <form onSubmit={handleSubmit(submit)} onChange={onFormChange} {...props}>
       {children}
     </form>
   );

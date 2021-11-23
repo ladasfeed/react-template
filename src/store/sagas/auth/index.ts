@@ -1,8 +1,14 @@
-import { takeEvery, take } from "redux-saga/effects";
+import { takeEvery, take, call } from "redux-saga/effects";
 import { sagaActions } from "store/sagas/actions";
-import { getUserSaga } from "store/sagas/auth/methods/getUser";
+import { authSaga } from "store/sagas/auth/methods/getUser";
+import { PayloadAction } from "@reduxjs/toolkit";
+import { AuthApiTypes } from "api/auth/types";
 
 export function* authWatcher() {
-  yield take(sagaActions.auth.getUser);
-  // call saga
+  while (true) {
+    const action: PayloadAction<AuthApiTypes.getUserType> = yield take(
+      sagaActions.auth.getUser
+    );
+    yield call(authSaga, action);
+  }
 }

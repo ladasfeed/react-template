@@ -6,4 +6,5 @@ export const routes = builders.router({
     login: "/login",
     password: "/password",
   },
+  cabinet: {},
 });

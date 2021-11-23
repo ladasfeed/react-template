@@ -1,8 +1,9 @@
-import {createAction} from "@reduxjs/toolkit";
+import { createAction } from "@reduxjs/toolkit";
+import { AuthApiTypes } from "api/auth/types";
 
 export const sagaActions = {
   auth: {
-    getUser: createAction<{phone: string}>("auth/getUser"),
-    getCode: createAction<{}>("auth/getCode"),
-  }
-}
+    getUser: createAction<AuthApiTypes.getUserType>("auth/getUser"),
+    getToken: createAction<AuthApiTypes.getToken>("auth/getToken"),
+  },
+};

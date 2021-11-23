@@ -10,3 +10,9 @@ div.fieldset {
     width: 400px;
     padding: 30px 50px;
 }
+
+.form {
+    display: grid;
+    grid-gap: 20px;
+    justify-items: center;
+}
