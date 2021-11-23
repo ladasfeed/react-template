@@ -1,0 +1,39 @@
+input.input {
+    border: 2px solid #6dd5dc;
+    box-shadow: 0 0 5px rgba(109, 213, 220, 0.4);
+    transition: .3s;
+}
+
+div.wrapper {
+    max-width: unset;
+}
+
+input.input:disabled {
+    background: white;
+}
+
+label.label {
+    font-family: Arial;
+    color: #20676c;
+    pointer-events: none;
+}
+
+input.input:not(:placeholder-shown) + label.label,
+input.input:focus + label.label,
+input.input.filled + label.label {
+    color: #9ecfd3;
+}
+
+div.error_state input.input {
+    border: 2px solid #ad0000;
+    box-shadow: 0 0 5px rgba(173, 0, 0, 0.4);
+}
+
+input.input:placeholder-shown:disabled + label.label {
+    background: transparent;
+}
+
+div.error input.input + label.label {
+    color: #ad0000;
+}
+

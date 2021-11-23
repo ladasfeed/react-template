@@ -1,0 +1,9 @@
+.button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid #6dd5dc;
+    box-shadow: 0 0 5px rgba(109, 213, 220, 0.4);
+    width: fit-content;
+    font-size: 16px;
+    font-family: 'Cera Pro';
+}

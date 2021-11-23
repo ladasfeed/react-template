@@ -1,0 +1,12 @@
+.container {
+    height: calc(var(--vh) * 100);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.fieldset {
+    max-width: 100%;
+    width: 400px;
+    padding: 30px 50px;
+}
