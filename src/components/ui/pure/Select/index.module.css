@@ -1,0 +1,9 @@
+.option {
+    padding: 8px;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.option:hover {
+    background: rgba(189,189,189,0.16);
+}

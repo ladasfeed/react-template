@@ -37,3 +37,10 @@ div.error input.input + label.label {
     color: #ad0000;
 }
 
+div.error {
+    height: 2em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    bottom: unset;
+    top: calc(100% - 16px);
+}

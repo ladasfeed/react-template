@@ -10,3 +10,9 @@
     grid-gap: 24px;
     justify-items: center;
 }
+
+.title {
+    margin-bottom: 30px;
+    font-size: 20px;
+    text-align: center;
+}

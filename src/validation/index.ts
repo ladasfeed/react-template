@@ -2,10 +2,12 @@ import { builders } from "react-dev-starter-pack/dist";
 
 export const YUP = builders.yup({
   text: {
-    max: () => "Max",
-    min: () => "Min",
-    req: "Req",
-    email: "Email",
+    max: (val) => `Максимум ${val} символов`,
+    min: (val) => `Минимум ${val} символов`,
+    req: "Обязательное поле",
+    email: "email",
   },
-  customSchemas: {},
+  customSchemas: (instance) => ({
+    pass: instance.string().min(6, "Минимум 6"),
+  }),
 });

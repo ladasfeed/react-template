@@ -20,21 +20,33 @@ export function* authSaga(action: PayloadAction<AuthApiTypes.getUserType>) {
       phone: payload.phone,
     });
 
+    /* get user */
     const user = response.data.data[0];
     yield put(authReducer.actions.setUserId(user.id));
 
     if (user) {
       yield redirect(routes.auth.password);
 
-      const getTokenAction: PayloadAction<AuthApiTypes.getToken> = yield take(
-        sagaActions.auth.getToken
-      );
-      const getTokenResponse: sagaApiType = yield call(
-        API.authApi.token,
-        getTokenAction.payload
-      );
-      if (getTokenResponse.status == 200) {
-        yield redirect(routes.cabinet.root);
+      while (1) {
+        try {
+          /* waiting for password */
+          const getTokenAction: PayloadAction<AuthApiTypes.getToken> = yield take(
+            sagaActions.auth.getToken
+          );
+          /* get token */
+          const getTokenResponse: sagaApiType = yield call(
+            API.authApi.token,
+            getTokenAction.payload
+          );
+          if (getTokenResponse.status == 200) {
+            yield redirect(routes.cabinet.root);
+            break;
+          }
+        } catch (e) {
+          yield call(errorHandlerSaga, {
+            response: e,
+          });
+        }
       }
     }
   } catch (e) {

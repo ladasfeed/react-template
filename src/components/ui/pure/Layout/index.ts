@@ -1,7 +1,7 @@
 import Container from "./Container";
-import Titles from "./Titles";
+import Title from "./Title";
 
 export const Layout = {
-  Container: Container.C,
-  Title: Titles.C,
+  Container,
+  Title,
 };

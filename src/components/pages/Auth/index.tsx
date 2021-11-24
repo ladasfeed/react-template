@@ -1,10 +1,10 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import { routes } from "routes";
-import Login from "./stages/login";
-import Password from "./stages/password";
 import styles from "./index.module.css";
 import { Layout } from "components/ui/pure/Layout";
+import Login from "./stages/login";
+import Password from "./stages/password";
 
 export const AuthRouter = () => {
   return (
@@ -12,10 +12,10 @@ export const AuthRouter = () => {
       <Layout.Container className={styles.fieldset} column>
         <Layout.Title>Регистрация</Layout.Title>
         <Route path={routes.auth.login}>
-          <Login.C />
+          <Login />
         </Route>
         <Route path={routes.auth.password}>
-          <Password.C />
+          <Password />
         </Route>
       </Layout.Container>
     </div>

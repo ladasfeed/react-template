@@ -6,7 +6,8 @@ import { useDispatch } from "react-redux";
 import { YUP } from "validation";
 import { sagaActions } from "store/sagas/actions";
 import { Form } from "core/Form";
-import styles from "../index.module.css";
+import styles from "components/pages/Auth/index.module.css";
+import { createFC } from "helpers/createFC";
 
 const fieldsNames = {
   phone: "phone",
@@ -20,7 +21,7 @@ const scheme = YUP.create({
   [fieldsNames.phone]: YUP.schemas.min(18),
 });
 
-const Login: FC = () => {
+export default createFC(function () {
   const form = useForm({
     resolver: YUP.resolver(scheme),
     reValidateMode: "onSubmit",
@@ -47,8 +48,4 @@ const Login: FC = () => {
       </Form>
     </>
   );
-};
-
-export default {
-  C: Login,
-};
+});

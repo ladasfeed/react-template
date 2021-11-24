@@ -17,10 +17,10 @@ type formType = {
 };
 
 const scheme = YUP.create({
-  [fieldsNames.password]: YUP.schemas.required(),
+  [fieldsNames.password]: YUP.schemas.pass,
 });
 
-const Password: FC = () => {
+export default function () {
   const form = useForm({
     resolver: YUP.resolver(scheme),
     reValidateMode: "onSubmit",
@@ -44,8 +44,4 @@ const Password: FC = () => {
       </Form>
     </>
   );
-};
-
-export default {
-  C: Password,
-};
+}

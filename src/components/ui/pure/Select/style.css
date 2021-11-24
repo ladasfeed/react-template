@@ -1,0 +1,11 @@
+.ReactSelect__control  {
+    border: 2px solid #6dd5dc;
+    box-shadow: 0 0 5px rgba(109, 213, 220, 0.4);
+}
+
+.ReactSelect__control:focus,
+.ReactSelect__control:active,
+.ReactSelect__control:hover {
+    border: 2px solid #6dd5dc;
+    box-shadow: 0 0 5px 2px rgba(109, 213, 220, 0.7);
+}
