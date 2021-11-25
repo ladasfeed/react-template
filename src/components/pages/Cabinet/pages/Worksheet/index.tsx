@@ -56,7 +56,6 @@ export default function () {
   const errors = form.formState.errors;
   const formw = form.watch();
 
-  console.log(formw);
   const submit = () => {};
 
   const displayErrors = () => {
@@ -74,7 +73,6 @@ export default function () {
     return nodes;
   };
 
-  console.log(errors);
   return (
     <div className={styles.container}>
       <Layout.Title>Анкета</Layout.Title>

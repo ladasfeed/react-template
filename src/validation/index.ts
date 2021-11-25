@@ -1,4 +1,4 @@
-import { builders } from "react-dev-starter-pack/dist";
+import { builders } from "react-dev-starter-pack";
 
 export const YUP = builders.yup({
   text: {
